@@ -66,7 +66,7 @@ full_nc_to_years_nc <- function(full_nc, start_y, end_y, out_name){
   
   for (aa in seq(start_y,end_y)){
     layers <- nc_y == aa
-    layers_row <- row_number(layers)[layers]     # Selects the row numbers
+    layers_row <- row_number(nc_y)[layers]     # Selects the row numbers
     raster_annual <- full_nc[[layers_row]]
     writeRaster(raster_annual, filename=paste("data/gridmet/", out_name, "_", aa, ".nc", sep=""), overwrite=TRUE)
   }
@@ -114,7 +114,5 @@ full_nc_to_years_nc(full_nc = rad,
 
 
 
-
 #happy <- brick("data/gridmet/precip_1980.nc")
-#happy <- brick("data/gridmet/tmax/tmax_1980.nc")
 
